@@ -35,7 +35,7 @@ function App() {
           </span>
         </h1>
         <p className="text-slate-500 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-lg mb-8 sm:mb-10 leading-relaxed font-light">
-          Get instant answers about Pakistani law — PPC, CrPC, cybercrime, constitutional matters, and more.
+          Get quick and simple answers about Pakistani laws, court rules, online safety, and your rights.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-600">
           <div className="flex items-center gap-2">
