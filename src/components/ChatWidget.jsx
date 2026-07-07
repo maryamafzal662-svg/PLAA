@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X } from 'lucide-react';
 import ChatHeader from './ChatHeader';
@@ -16,8 +16,16 @@ const createMessage = (role, content) => ({
     timestamp: new Date(),
 });
 
-export default function ChatWidget() {
-    const [isOpen, setIsOpen] = useState(false);
+export default function ChatWidget({
+    isOpen: controlledIsOpen,
+    setIsOpen: controlledSetIsOpen,
+    externalTriggerText,
+    clearExternalTrigger
+} = {}) {
+    const [localIsOpen, setLocalIsOpen] = useState(false);
+    const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : localIsOpen;
+    const setIsOpen = controlledSetIsOpen !== undefined ? controlledSetIsOpen : setLocalIsOpen;
+
     const [messages, setMessages] = useState([]);
     const [isTyping, setIsTyping] = useState(false);
     const [unread, setUnread] = useState(1);
@@ -64,9 +72,26 @@ export default function ChatWidget() {
         }
     }, []);
 
+    // Clear unread when open
+    useEffect(() => {
+        if (isOpen) {
+            setUnread(0);
+        }
+    }, [isOpen]);
+
+    // Handle external triggers from landing page CTAs
+    useEffect(() => {
+        if (externalTriggerText) {
+            setIsOpen(true);
+            sendMessage(externalTriggerText);
+            if (clearExternalTrigger) {
+                clearExternalTrigger();
+            }
+        }
+    }, [externalTriggerText, sendMessage, clearExternalTrigger, setIsOpen]);
+
     const toggleOpen = () => {
         setIsOpen(prev => !prev);
-        if (!isOpen) setUnread(0);
     };
 
     return (

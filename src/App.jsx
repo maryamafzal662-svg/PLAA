@@ -1,13 +1,37 @@
+import { useState } from 'react';
 import ChatWidget from './components/ChatWidget';
+import { 
+  Scale, 
+  FileText, 
+  ShieldCheck, 
+  MessageSquare, 
+  BookOpen,
+  ArrowUpRight,
+  ShieldAlert,
+  ChevronRight
+} from 'lucide-react';
 
 function App() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [externalTriggerText, setExternalTriggerText] = useState("");
+
+  const handleCardClick = (query) => {
+    setExternalTriggerText(query);
+    setIsChatOpen(true);
+  };
+
+  const handleClearTrigger = () => {
+    setExternalTriggerText("");
+  };
+
   return (
-    <div className="min-h-screen min-h-[100dvh] bg-gradient-to-br from-[#050510] via-[#0a0a1a] to-[#0f0825] relative overflow-hidden">
+    <div className="min-h-screen min-h-[100dvh] bg-gradient-to-br from-[#050510] via-[#0a0a1a] to-[#0f0825] relative overflow-x-hidden">
       {/* Ambient Background Decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-64 sm:w-[500px] h-64 sm:h-[500px] bg-indigo-600/[0.04] rounded-full blur-[80px] sm:blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-52 sm:w-[400px] h-52 sm:h-[400px] bg-purple-600/[0.04] rounded-full blur-[60px] sm:blur-[100px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-[700px] h-80 sm:h-[700px] bg-indigo-500/[0.02] rounded-full blur-[100px] sm:blur-[150px]" />
+        
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 opacity-[0.015] hidden sm:block"
           style={{
@@ -17,40 +41,204 @@ function App() {
         />
       </div>
 
-      {/* Demo Page Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen min-h-[100dvh] px-5 sm:px-6 text-center">
-        <div className="mb-5 sm:mb-6">
-          <span className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full
-            text-[11px] sm:text-xs font-semibold
-            bg-indigo-500/[0.08] text-indigo-300 border border-indigo-500/15
-            backdrop-blur-sm tracking-wide uppercase">
-            ⚖️ AI-Powered Legal Assistant
-          </span>
-        </div>
-        <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white mb-4 sm:mb-5 leading-[1.15] sm:leading-[1.1] tracking-tight">
-          Pakistani Legal
-          <br />
-          <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-            AI Assistant
-          </span>
-        </h1>
-        <p className="text-slate-500 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-lg mb-8 sm:mb-10 leading-relaxed font-light">
-          Get quick and simple answers about Pakistani laws, court rules, online safety, and your rights.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-600">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-emerald-400 online-dot" />
-            <span className="font-medium">Online</span>
+      {/* Top Navbar */}
+      <header className="absolute top-0 inset-x-0 z-30 px-6 py-5 sm:px-12 flex items-center justify-between border-b border-white/[0.03] backdrop-blur-md bg-[#050510]/30">
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/25 ring-1 ring-indigo-400/20">
+            <Scale className="w-4.5 h-4.5 text-white" />
           </div>
-          <span className="text-slate-800">•</span>
-          <span className="font-medium">Powered by AI</span>
-          <span className="text-slate-800">•</span>
-          <span className="font-medium">Free to use</span>
+          <div>
+            <h1 className="text-white text-sm sm:text-base font-bold tracking-tight">PLAA</h1>
+            <p className="text-[9px] text-slate-500 font-semibold uppercase tracking-wider">Pakistan Legal AI</p>
+          </div>
         </div>
-      </div>
+
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/15 rounded-full px-3 py-1.5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+            </span>
+            <span className="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">System Live</span>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content Grid */}
+      <main className="relative z-10 w-full max-w-7xl mx-auto min-h-screen flex flex-col justify-center px-6 pt-28 pb-16 md:pt-36 md:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center w-full my-auto">
+          
+          {/* Left Column: Hero Description */}
+          <div className="lg:col-span-6 flex flex-col text-left items-start space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full
+              text-[10px] sm:text-xs font-semibold
+              bg-indigo-500/[0.08] text-indigo-300 border border-indigo-500/15
+              backdrop-blur-sm tracking-wide uppercase">
+              ⚖️ AI-Powered Legal Assistant
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-[1.1] tracking-tight">
+              Understand <br />
+              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-300 bg-clip-text text-transparent">
+                Pakistani Law,
+              </span>
+              <br />
+              Instantly.
+            </h2>
+
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl font-light">
+              Get immediate, direct guidance on the Pakistan Penal Code (PPC), Civil Rights, Cyber laws (PECA), and court procedures. Completely free and anonymous.
+            </p>
+
+            {/* Quick Metrics/Features list */}
+            <div className="grid grid-cols-3 gap-4 w-full max-w-md pt-4 border-t border-white/[0.05]">
+              <div>
+                <p className="text-base sm:text-lg font-bold text-white tracking-tight">PPC & PECA</p>
+                <p className="text-[10px] text-slate-500">Trained Base</p>
+              </div>
+              <div className="border-l border-white/[0.05] pl-4">
+                <p className="text-base sm:text-lg font-bold text-emerald-400 tracking-tight">100%</p>
+                <p className="text-[10px] text-slate-500">Anonymous</p>
+              </div>
+              <div className="border-l border-white/[0.05] pl-4">
+                <p className="text-base sm:text-lg font-bold text-indigo-400 tracking-tight">&lt; 3s</p>
+                <p className="text-[10px] text-slate-500">Response Speed</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto pt-4">
+              <button 
+                onClick={() => setIsChatOpen(true)}
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl
+                  text-sm font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-600
+                  hover:from-indigo-600 hover:to-purple-700 active:scale-[0.98]
+                  shadow-lg shadow-indigo-500/20 transition-all duration-200 cursor-pointer text-center"
+              >
+                <MessageSquare className="w-4 h-4" />
+                Start Free Consultation
+              </button>
+              
+              <a 
+                href="https://github.com/maryamafzal662-svg/PLAA" 
+                target="_blank" 
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl
+                  text-sm font-semibold text-slate-300 hover:text-white border border-white/10 hover:border-white/20
+                  bg-white/[0.02] hover:bg-white/[0.05] active:scale-[0.98] transition-all duration-200 cursor-pointer text-center"
+              >
+                View Repository
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column: Interactive Practice Cards Grid */}
+          <div className="lg:col-span-6 w-full mt-6 lg:mt-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Card 1: Criminal Law */}
+              <div 
+                onClick={() => handleCardClick("Explain PPC section 302 or theft punishment")}
+                className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white/[0.01] border border-white/[0.04] hover:bg-indigo-500/[0.03] hover:border-indigo-500/20 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-indigo-500/[0.02] select-none"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 group-hover:scale-110 transition-transform duration-300">
+                    <ShieldAlert className="w-5 h-5" />
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all duration-300" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-white mb-1.5 group-hover:text-indigo-300 transition-colors">Criminal Law (PPC)</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    Get references for PPC codes, FIR filing procedures, bail guidelines, and crimes.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 2: Civil Law */}
+              <div 
+                onClick={() => handleCardClick("How do property inheritance laws work in Pakistan?")}
+                className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white/[0.01] border border-white/[0.04] hover:bg-indigo-500/[0.03] hover:border-indigo-500/20 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-indigo-500/[0.02] select-none"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform duration-300">
+                    <FileText className="w-5 h-5" />
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all duration-300" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-white mb-1.5 group-hover:text-indigo-300 transition-colors">Civil & Family Law</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    Understand land property disputes, contract agreements, marriage/divorce, and inheritance.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3: CyberPECA Act */}
+              <div 
+                onClick={() => handleCardClick("Cybercrime laws in Pakistan and how to report harassment")}
+                className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white/[0.01] border border-white/[0.04] hover:bg-indigo-500/[0.03] hover:border-indigo-500/20 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-indigo-500/[0.02] select-none"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 group-hover:scale-110 transition-transform duration-300">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all duration-300" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-white mb-1.5 group-hover:text-indigo-300 transition-colors">Cyber & Digital Rights</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    Find out how to handle online blackmail, financial cyber fraud, and file FIA complaints.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 4: Constitutional Rights */}
+              <div 
+                onClick={() => handleCardClick("What are my fundamental rights under the Constitution of Pakistan?")}
+                className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white/[0.01] border border-white/[0.04] hover:bg-indigo-500/[0.03] hover:border-indigo-500/20 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-indigo-500/[0.02] select-none"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform duration-300">
+                    <BookOpen className="w-5 h-5" />
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all duration-300" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-white mb-1.5 group-hover:text-indigo-300 transition-colors">Constitutional Rights</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    Learn about writ petitions, high court procedures, and fundamental human rights.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Footer info: Refined & Responsive */}
+        <footer className="w-full mt-16 md:mt-24 border-t border-white/[0.03] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[10px] sm:text-xs text-slate-500 text-center md:text-left">
+            © {new Date().getFullYear()} PLAA. Disclaimer: AI responses are for informational purposes and not formal legal counsel.
+          </p>
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2 text-[10px] sm:text-xs text-slate-500">
+            <div className="flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Online AI</span>
+            </div>
+            <div className="text-slate-800">|</div>
+            <div>Powered by PECA & PPC</div>
+            <div className="text-slate-800">|</div>
+            <div>Free to Use</div>
+          </div>
+        </footer>
+      </main>
 
       {/* Chatbot Widget */}
-      <ChatWidget />
+      <ChatWidget 
+        isOpen={isChatOpen} 
+        setIsOpen={setIsChatOpen} 
+        externalTriggerText={externalTriggerText}
+        clearExternalTrigger={handleClearTrigger}
+      />
     </div>
   );
 }
