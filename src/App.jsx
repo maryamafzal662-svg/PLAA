@@ -71,43 +71,40 @@ function App() {
           
           {/* Left Column: Hero Description */}
           <div className="lg:col-span-6 flex flex-col text-left items-start space-y-6">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full
-              text-[10px] sm:text-xs font-semibold tracking-wider uppercase
-              bg-gradient-to-r from-indigo-500/[0.08] to-purple-500/[0.08] 
-              text-indigo-200 border border-indigo-500/20 backdrop-blur-md">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-              </span>
-              AI-Powered Legal Intelligence
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full
+              text-[10px] font-semibold tracking-wider uppercase
+              bg-white/[0.02] border border-white/[0.06] text-indigo-300
+              shadow-[0_0_20px_rgba(99,102,241,0.05)] backdrop-blur-md">
+              <span className="flex h-1.5 w-1.5 rounded-full bg-indigo-500" />
+              AI Legal Assistant v1.0
             </div>
 
-            <h2 className="text-4xl sm:text-5xl md:text-[54px] font-black text-white leading-[1.15] tracking-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6.5xl font-black text-white leading-[1.08] tracking-tight">
               Understand <br />
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-indigo-400 bg-clip-text text-transparent">
                 Pakistani Law,
               </span>
               <br />
-              Instantly.
+              <span className="text-slate-300 font-light italic">in seconds.</span>
             </h2>
 
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl font-light">
-              Get immediate, direct guidance on the Pakistan Penal Code (PPC), Civil Rights, Cyber laws (PECA), and court procedures. Completely free and anonymous.
+              Get immediate, direct guidance on the <strong className="text-slate-200 font-medium">Pakistan Penal Code (PPC)</strong>, <strong className="text-slate-200 font-medium">Civil Rights</strong>, <strong className="text-slate-200 font-medium">Cyber laws (PECA)</strong>, and court procedures. Completely free and anonymous.
             </p>
 
             {/* Quick Metrics Cards */}
-            <div className="grid grid-cols-3 gap-3 w-full max-w-lg pt-4 border-t border-white/[0.05]">
-              <div className="flex flex-col p-3 rounded-xl bg-white/[0.015] border border-white/[0.04] backdrop-blur-sm hover:border-indigo-500/10 transition-colors duration-300">
-                <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Trained Base</span>
-                <span className="text-xs sm:text-sm font-bold text-white mt-1">PPC & PECA</span>
+            <div className="grid grid-cols-3 gap-4 w-full max-w-lg pt-6 border-t border-white/[0.05]">
+              <div className="relative overflow-hidden p-4 rounded-xl bg-white/[0.01] border border-white/[0.04] hover:bg-white/[0.02] hover:border-indigo-500/20 transition-all duration-300 select-none">
+                <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest block">Trained On</span>
+                <span className="text-xs sm:text-sm font-bold text-white mt-1.5 block">PPC & PECA</span>
               </div>
-              <div className="flex flex-col p-3 rounded-xl bg-white/[0.015] border border-white/[0.04] backdrop-blur-sm hover:border-indigo-500/10 transition-colors duration-300">
-                <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Privacy</span>
-                <span className="text-xs sm:text-sm font-bold text-emerald-400 mt-1">100% Anon</span>
+              <div className="relative overflow-hidden p-4 rounded-xl bg-white/[0.01] border border-white/[0.04] hover:bg-white/[0.02] hover:border-emerald-500/20 transition-all duration-300 select-none">
+                <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest block">Privacy</span>
+                <span className="text-xs sm:text-sm font-bold text-emerald-400 mt-1.5 block">100% Anon</span>
               </div>
-              <div className="flex flex-col p-3 rounded-xl bg-white/[0.015] border border-white/[0.04] backdrop-blur-sm hover:border-indigo-500/10 transition-colors duration-300">
-                <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Speed</span>
-                <span className="text-xs sm:text-sm font-bold text-indigo-400 mt-1">&lt; 3s Reply</span>
+              <div className="relative overflow-hidden p-4 rounded-xl bg-white/[0.01] border border-white/[0.04] hover:bg-white/[0.02] hover:border-purple-500/20 transition-all duration-300 select-none">
+                <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest block">Latency</span>
+                <span className="text-xs sm:text-sm font-bold text-indigo-300 mt-1.5 block">&lt; 3s Reply</span>
               </div>
             </div>
 
@@ -115,14 +112,14 @@ function App() {
               <button 
                 onClick={() => setIsChatOpen(true)}
                 className="relative group overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-4.5 rounded-xl
-                  text-sm font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-600
+                  text-xs font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-600
                   hover:from-indigo-600 hover:to-purple-700 active:scale-[0.98]
-                  shadow-xl shadow-indigo-500/20 transition-all duration-300 cursor-pointer text-center w-full sm:w-auto"
+                  shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 transition-all duration-300 cursor-pointer text-center w-full sm:w-auto uppercase tracking-wider"
               >
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
-                <MessageSquare className="w-4 h-4 group-hover:rotate-6 transition-transform" />
+                <MessageSquare className="w-3.5 h-3.5 group-hover:rotate-6 transition-transform" />
                 <span>Consult Assistant Now</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>
