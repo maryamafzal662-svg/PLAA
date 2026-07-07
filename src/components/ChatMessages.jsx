@@ -94,7 +94,7 @@ export default function ChatMessages({ messages, isTyping, onSuggestionSelect })
                         Legal AI Assistant
                     </h4>
                     <p className="text-slate-400 text-[13px] sm:text-sm text-center leading-relaxed mb-8 sm:mb-10 max-w-[300px]">
-                        Ask me anything about Pakistani law — criminal, civil, cyber, or constitutional.
+                        Ask me any question about Pakistani law.
                     </p>
 
                     {/* Divider */}
