@@ -48,8 +48,8 @@ function App() {
             <Scale className="w-4.5 h-4.5 text-white" />
           </div>
           <div>
-            <h1 className="text-white text-sm sm:text-base font-bold tracking-tight">PLAA</h1>
-            <p className="text-[9px] text-slate-500 font-semibold uppercase tracking-wider">Pakistan Legal AI</p>
+            <h1 className="text-white text-sm sm:text-base font-bold tracking-tight">Pakistan Legal Assistant</h1>
+            <p className="text-[9px] text-emerald-400 font-semibold uppercase tracking-wider">AI Powered</p>
           </div>
         </div>
 
@@ -112,23 +112,11 @@ function App() {
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl
                   text-sm font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-600
                   hover:from-indigo-600 hover:to-purple-700 active:scale-[0.98]
-                  shadow-lg shadow-indigo-500/20 transition-all duration-200 cursor-pointer text-center"
+                  shadow-lg shadow-indigo-500/20 transition-all duration-200 cursor-pointer text-center w-full sm:w-auto"
               >
                 <MessageSquare className="w-4 h-4" />
                 Start Free Consultation
               </button>
-              
-              <a 
-                href="https://github.com/maryamafzal662-svg/PLAA" 
-                target="_blank" 
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl
-                  text-sm font-semibold text-slate-300 hover:text-white border border-white/10 hover:border-white/20
-                  bg-white/[0.02] hover:bg-white/[0.05] active:scale-[0.98] transition-all duration-200 cursor-pointer text-center"
-              >
-                View Repository
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
             </div>
           </div>
 
@@ -217,7 +205,7 @@ function App() {
         {/* Footer info: Refined & Responsive */}
         <footer className="w-full mt-16 md:mt-24 border-t border-white/[0.03] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[10px] sm:text-xs text-slate-500 text-center md:text-left">
-            © {new Date().getFullYear()} PLAA. Disclaimer: AI responses are for informational purposes and not formal legal counsel.
+            © {new Date().getFullYear()} Pakistan Legal Assistant. Disclaimer: AI responses are for informational purposes and not formal legal counsel.
           </p>
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2 text-[10px] sm:text-xs text-slate-500">
             <div className="flex items-center gap-1.5">
