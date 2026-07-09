@@ -125,7 +125,7 @@ export default function ChatWidget({
                             transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                             className="chat-container glass overflow-hidden flex flex-col"
                         >
-                            <ChatHeader onClose={toggleOpen} />
+                            <ChatHeader onClose={toggleOpen} showActions={true} />
                             <ChatMessages
                                 messages={messages}
                                 isTyping={isTyping}
@@ -143,11 +143,11 @@ export default function ChatWidget({
                     onClick={toggleOpen}
                     className={`relative w-16 h-16 sm:w-[60px] sm:h-[60px] rounded-full
                         flex items-center justify-center cursor-pointer
-                        bg-gradient-to-br from-indigo-500 via-indigo-600 to-purple-600 text-white
-                        shadow-2xl shadow-indigo-500/30 transition-all duration-300
+                        bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-600 text-white
+                        shadow-2xl shadow-emerald-500/30 transition-all duration-300
                         m-5 sm:m-0 sm:mt-4
                         ${isOpen ? 'hidden sm:flex' : ''}
-                        ${!isOpen ? 'pulse-glow' : 'shadow-lg shadow-indigo-500/20'}`}
+                        ${!isOpen ? 'pulse-glow' : 'shadow-lg shadow-emerald-500/20'}`}
                     aria-label="Toggle chat"
                 >
                     <AnimatePresence mode="wait">

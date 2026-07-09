@@ -20,9 +20,9 @@ function MessageBubble({ message }) {
         >
             {/* AI avatar — desktop only */}
             {!isUser && (
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700
                     flex items-center justify-center flex-shrink-0
-                    shadow-md shadow-indigo-500/20 ring-1 ring-indigo-400/20
+                    shadow-md shadow-emerald-500/10 ring-1 ring-emerald-400/20
                     hidden sm:flex">
                     <span className="text-white text-[10px] font-extrabold">AI</span>
                 </div>
@@ -31,7 +31,7 @@ function MessageBubble({ message }) {
             <div className={`max-w-[82%] sm:max-w-[76%] flex flex-col ${isUser ? 'items-end' : 'items-start'}`}>
                 <div
                     className={`px-4 py-3.5 sm:px-5 sm:py-3.5 text-[14px] sm:text-[13.5px] leading-relaxed ${isUser
-                        ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-2xl rounded-br-md shadow-md shadow-indigo-500/15'
+                        ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white rounded-2xl rounded-br-md shadow-md shadow-emerald-500/15'
                         : 'glass-light text-slate-200 rounded-2xl rounded-tl-md'
                         }`}
                 >
@@ -82,10 +82,10 @@ export default function ChatMessages({ messages, isTyping, onSuggestionSelect })
                     <motion.div
                         animate={{ y: [0, -6, 0] }}
                         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                        className="w-[72px] h-[72px] rounded-2xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-purple-600
+                        className="w-[72px] h-[72px] rounded-2xl bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-600
                             flex items-center justify-center mb-7
-                            shadow-xl shadow-indigo-500/30
-                            ring-2 ring-indigo-400/15"
+                            shadow-xl shadow-emerald-500/30
+                            ring-2 ring-emerald-400/15"
                     >
                         <span className="text-3xl">⚖️</span>
                     </motion.div>
@@ -98,7 +98,7 @@ export default function ChatMessages({ messages, isTyping, onSuggestionSelect })
                     </p>
 
                     {/* Divider */}
-                    <div className="w-24 h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent mb-7 sm:mb-8" />
+                    <div className="w-24 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent mb-7 sm:mb-8" />
 
                     <SuggestedQuestions onSelect={onSuggestionSelect} />
                 </motion.div>

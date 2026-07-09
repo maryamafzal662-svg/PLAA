@@ -16,9 +16,9 @@ export default function SuggestedQuestions({ onSelect }) {
             className="w-full"
         >
             <div className="flex items-center gap-2.5 mb-5 sm:mb-6">
-                <div className="w-7 h-7 rounded-lg bg-indigo-500/10 flex items-center justify-center flex-shrink-0
-                    ring-1 ring-indigo-500/10">
-                    <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0
+                    ring-1 ring-emerald-500/10">
+                    <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
                 </div>
                 <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest">
                     Try asking
@@ -38,15 +38,15 @@ export default function SuggestedQuestions({ onSelect }) {
                         className="group text-left glass-light rounded-xl
                             px-5 py-4 sm:px-6 sm:py-5
                             text-[13px] sm:text-sm text-slate-300 leading-relaxed
-                            hover:text-white hover:border-indigo-500/25
-                            active:bg-indigo-500/10
+                            hover:text-white hover:border-emerald-500/25
+                            active:bg-emerald-500/10
                             transition-all duration-200 cursor-pointer
                             border border-transparent
-                            hover:bg-indigo-500/[0.04]
+                            hover:bg-emerald-500/[0.04]
                             flex items-center justify-between gap-5"
                     >
                         <span className="leading-relaxed">{q}</span>
-                        <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-indigo-400
+                        <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400
                             transition-all duration-200 flex-shrink-0
                             opacity-40 sm:opacity-0 group-hover:opacity-100
                             -translate-x-1 group-hover:translate-x-0" />

@@ -5,11 +5,11 @@ export default function ChatHeader({ onClose, onMenuClick, showActions = false }
     return (
         <div className="relative flex items-center justify-between flex-shrink-0
             px-5 py-4 sm:px-6 sm:py-4.5
-            border-b border-white/[0.05]
-            bg-gradient-to-r from-indigo-950/20 via-transparent to-purple-950/20">
+            border-b border-emerald-500/[0.05]
+            bg-gradient-to-r from-emerald-950/20 via-transparent to-emerald-950/20">
 
             {/* Top accent line */}
-            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
 
             <div className="flex items-center gap-3">
                 {/* Hamburger Menu button — mobile only */}
@@ -25,10 +25,10 @@ export default function ChatHeader({ onClose, onMenuClick, showActions = false }
 
                 {/* Avatar */}
                 <div className="relative flex-shrink-0">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700
                         flex items-center justify-center
-                        shadow-md shadow-indigo-500/25
-                        ring-1 ring-indigo-400/15">
+                        shadow-md shadow-emerald-500/25
+                        ring-1 ring-emerald-400/15">
                         <Scale className="w-4.5 h-4.5 text-white" />
                     </div>
                     <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full

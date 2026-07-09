@@ -47,7 +47,7 @@ export default function ChatInput({ onSend, isLoading }) {
                         flex items-center justify-center flex-shrink-0
                         transition-all duration-300 cursor-pointer
                         ${text.trim() && !isLoading
-                            ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white send-glow shadow-lg shadow-indigo-500/25'
+                            ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white send-glow shadow-lg shadow-emerald-500/25'
                             : 'bg-white/[0.06] text-slate-600'
                         }
                         disabled:cursor-not-allowed disabled:opacity-50`}
